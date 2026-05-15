@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents - Office Intelligence</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <button class="sidebar-toggle"><i class="bi bi-list"></i></button>
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar"></aside>
+        <main class="main-content">
+            <div class="page-header" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+                <div><h1>Documents</h1><p>Browse and search all office documents</p></div>
+                <a href="upload.html" class="btn btn-primary"><i class="bi bi-cloud-upload"></i> Upload New</a>
+            </div>
+            <div class="filters-bar">
+                <div class="search-bar" style="flex:1;min-width:250px">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="searchInput" class="form-control" placeholder="Search documents..." onkeydown="if(event.key==='Enter')searchDocuments()">
+                </div>
+                <select class="form-control" style="width:auto" onchange="window.location.href='documents.html?category='+this.value">
+                    <option value="">All Categories</option>
+                    <option value="meeting_notes">Meeting Notes</option>
+                    <option value="orders">Orders</option>
+                    <option value="compliance">Compliance</option>
+                    <option value="policies">Policies</option>
+                    <option value="reports">Reports</option>
+                    <option value="circulars">Circulars</option>
+                    <option value="employee_files">Employee Files</option>
+                </select>
+            </div>
+            <div class="doc-grid" id="docGrid"><div class="spinner"></div></div>
+        </main>
+    </div>
+    <script src="../js/api.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/documents.js"></script>
+</body>
+</html>
